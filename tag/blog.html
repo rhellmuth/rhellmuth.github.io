@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+        <meta charset="utf-8" />
+        <title>Humanum ex Machina - blog</title>
+        <link rel="stylesheet" href="https://rhellmuth.github.io/theme/css/main.css" />
+        <link href="https://rhellmuth.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Humanum ex Machina Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="https://rhellmuth.github.io/">Humanum ex Machina </a></h1>
+                <nav><ul>
+                    <li><a href="https://rhellmuth.github.io/pages/sobre.html">Sobre</a></li>
+                    <li><a href="https://rhellmuth.github.io/category/tutoriais.html">Tutoriais</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="https://rhellmuth.github.io/hello-pelican.html">Hello Pelican!</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-12-28T17:00:00+01:00">
+                Published: Sun 28 December 2014
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://rhellmuth.github.io/author/rudolf-hellmuth.html">Rudolf Hellmuth</a>
+        </address>
+<p>In <a href="https://rhellmuth.github.io/category/tutoriais.html">Tutoriais</a>. </p>
+<p>tags: <a href="https://rhellmuth.github.io/tag/pelican.html">pelican</a> <a href="https://rhellmuth.github.io/tag/python.html">python</a> <a href="https://rhellmuth.github.io/tag/blog.html">blog</a> </p>
+</footer><!-- /.post-info --><!-- PELICAN_BEGIN_SUMMARY -->
+
+<p>{% img align-center {filename}/figures/592px-PelecanusGronvold.jpg 450  "PelecanusGronvold by Henrik Groenvold - Ibis 1914. Licensed under Public Domain via Wikimedia Commons" "pelicanos"  %}
+<p align="center" style="width: 350px; max-width: 100%; text-align: left; margin-left: auto; margin-right: auto;">
+  PelecanusGronvold by Henrik Groenvold - Ibis 1914.
+  </br>
+  <font color="#C8C8C8">
+    Licensed under Public Domain via Wikimedia Commons.
+  </font>
+</p></p>
+<h1>Criando meu primeiro post no Pelican</h1>
+<p>Estava pensando em criar este blog há algum tempo. Queria que fosse um blog onde pudesse postar tutoriais de <a href="http://pt.wikipedia.org/wiki/Computação_científica">computação científica</a> e fórmulas matemáticas em <a href="http://pt.wikipedia.org/wiki/LaTeX">LaTeX</a>. Mais importante do que isso, queria ter total controle sobre layout e conteúdo (inclusive aquelas informações automáticas de rodapé). Então li o post "<a href="http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/">Migrating from Octopress to Pelican</a>" do <a href="https://jakevdp.github.io/">Pythonic Perambulations</a> e acabei conhecendo o pacote <a href="http://blog.getpelican.com/">Pelican</a>. Pelican é um gerador de páginas estáticas criado em <em>python</em> para facilitar nossa vida, na criação de blogs ou site estáticos. Sites estáticos podem ser servidos no servidor <a href="https://github.com/">github</a> usando a ferramenta <a href="http://git-scm.com/">git</a> de gerenciamento de versão de código fonte. Já havia tentado começar este blog usando <a href="octopress.org">Octopress</a> há uns meses atrás, mas acabei perdendo a motivação em parte porque Octopress funciona em <em>Ruby</em>, que é uma linguagem que não domino. Como eu adoro Python, Pelican acabou sendo uma ótima opção. A <a href="http://docs.getpelican.com/">documentação oficial</a> está em inglês, mas no blog <a href="http://mindbending.org/pt/series/migrando-para-o-pelican">Mind Bending</a> existem ótimos tutoriais em português.
+<!-- PELICAN_END_SUMMARY --></p>
+<p>A minha primeira experiência com o Pelican foi estranha. Achei que seria mais simples. Achei muito simples configurar o Pelican, porque tudo é feito em dois scripts de configuração em Python. Se eu tivesse usado qualquer tema pronto teria colocado esse blog no ar no mesmo dia. O tema que mais tinha gostado para este blog foi mesmo o <em>default</em> chamado <em>notmyidea</em>, mas não tinha gostado de algumas características dele. Daí resolvi fazer algumas pequenas modificações neste tema, e isso me deu uma dor de cabeça porque não estou acostumado a editar <a href="http://pt.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a>. Acredito que seja super fácil para quem tem experiência em webdesign. </p>
+<h2>Escrever em Markdown ou reStructuredText?</h2>
+<p>Havia também uma coisa que precisava decidir, Python permite que escrevamos artigos usando tanto no formato <a href="http://pt.wikipedia.org/wiki/Markdown">Markdown</a> quanto no <a href="http://pt.wikipedia.org/wiki/ReStructuredText">reStructuredText</a>. reStructuredText é o formato mais usado para documentação em de bibliotecas Python, e permite que passêmos mais opções para diferentes diagramações de coisas como figuras, tabelas, links e parágrafos. Basicamente podemos especificar tags diferentes no template HTML do tema e os chamar usando flags dos comandos do reStructuredText. Isso parece ser mais flexível porque Markdown não pode fazer isso. Entretanto, é necessário configurar várias opções no template que basicamente esqueceria depois de um tempo. Então acabei escolhendo escrever tudo em Markdown porque Markdown tem a vantagem de interpretar livremente pedaços de HTML sempre que quiser alguma diagramação especial para qualquer coisa. Foi assim que coloquei a legenda na figura dos pelicanos no topo desse artigo:</p>
+<div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">img</span><span class="w"> </span>align-center<span class="w"> </span>{filename}/figures/<span class="mi">592</span>px-PelecanusGronvold.jpg<span class="w"> </span><span class="mi">450</span><span class="w">  </span><span class="s2">&quot;PelecanusGronvold by Henrik Groenvold - Ibis 1914. Licensed under Public Domain via Wikimedia Commons&quot;</span><span class="w"> </span><span class="s2">&quot;pelicanos&quot;</span><span class="w">  </span><span class="p">%}</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="nt">&lt;p</span> <span class="na">align=</span><span class="s">&quot;center&quot;</span> <span class="na">style=</span><span class="s">&quot;width: 350px; max-width: 100%; text-align: left; margin-left: auto; margin-right: auto;&quot;</span><span class="nt">&gt;</span>
+  PelecanusGronvold by Henrik Groenvold - Ibis 1914.
+  <span class="nt">&lt;/br&gt;</span>
+  <span class="nt">&lt;font</span> <span class="na">color=</span><span class="s">&quot;#C8C8C8&quot;</span><span class="nt">&gt;</span>
+    Licensed under Public Domain via Wikimedia Commons.
+  <span class="nt">&lt;/font&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+
+<h2>Plugins que estou usando</h2>
+<p>A primeira linha do exemplo acima é um <a href="https://github.com/Shopify/liquid/wiki">liquid</a> tag que permite configurar o tamanho da figura. Existem liquid tags preconfigurados em plugins do Pelican. Curti principalmente o liquid tag que inserere <a href="http://ipython.org/notebook.html">IPython Notebooks</a>, algo que vou usar bastante. Aqui vai a lista dos plugins que estou usando no momento:</p>
+<div class="highlight"><pre><span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;liquid_tags.img&#39;</span><span class="p">,</span>
+           <span class="s">&#39;liquid_tags.video&#39;</span><span class="p">,</span>
+           <span class="s">&#39;liquid_tags.youtube&#39;</span><span class="p">,</span>
+           <span class="s">&#39;liquid_tags.vimeo&#39;</span><span class="p">,</span>
+           <span class="s">&#39;liquid_tags.include_code&#39;</span><span class="p">,</span>
+           <span class="s">&#39;liquid_tags.notebook&#39;</span><span class="p">,</span>
+           <span class="s">&#39;summary&#39;</span><span class="p">,</span>
+           <span class="s">&#39;sitemap&#39;</span><span class="p">,</span>
+           <span class="s">&#39;latex&#39;</span><span class="p">,</span>
+          <span class="p">]</span>
+</pre></div>
+
+
+<p>Funciona super bem para por filmes nos posts configurando o tamanho da janela. Olhe o exemplo:</p>
+<div class="highlight"><pre><span class="p">{%</span><span class="w"> </span><span class="nt">youtube</span><span class="w"> </span><span class="mi">9</span>F<span class="mi">1</span>iWp<span class="mi">4</span>Gl<span class="mi">3</span>k<span class="w"> </span>[<span class="mi">240</span>]<span class="w"> </span>[<span class="mi">180</span>]<span class="w"> </span><span class="p">%}</span>
+</pre></div>
+
+
+<p>{% youtube 9F1iWp4Gl3k [240] [180] %}</p>
+<h2>Usando $\LaTeX$</h2>
+<p>O plugin de $\LaTeX$ funciona super bem. Para colocar fórmulas no texto, basta escrever entre símbolos de dolar <code>$...$</code>. Por exemplo, <code>$x^2_a$</code> vira $x^2_a$! Quando usamos dólares duplos <code>$$...$$</code>, a equação é escrita numa linha sozinha e centralizada. Por exemplo:</p>
+<div class="highlight"><pre><span class="sb">$$</span><span class="nb"></span>
+<span class="nb">    F</span><span class="o">(</span><span class="nb">k</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\int</span><span class="nb">_{</span><span class="o">-</span><span class="nv">\infty</span><span class="nb">}^{</span><span class="nv">\infty</span><span class="nb">} f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> e^{</span><span class="m">2</span><span class="nv">\pi</span><span class="nb"> i k} </span><span class="nv">\,</span><span class="nb"> dx</span>
+<span class="s">$$</span>
+</pre></div>
+
+
+<p>$$
+    F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} \, dx
+$$</p>
+<p>Também é possível colocar numerações com labels nas equações de duplo dólar usando o "environment" <code>equation</code> do $\LaTeX$:</p>
+<div class="highlight"><pre><span class="sb">$$</span><span class="nb"></span>
+<span class="nb">    </span><span class="nv">\begin</span><span class="nb">{equation}</span>
+<span class="nb">        F</span><span class="o">(</span><span class="nb">k</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\int</span><span class="nb">_{</span><span class="o">-</span><span class="nv">\infty</span><span class="nb">}^{</span><span class="nv">\infty</span><span class="nb">} f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> e^{</span><span class="m">2</span><span class="nv">\pi</span><span class="nb"> i k} </span><span class="nv">\,</span><span class="nb"> dx </span>
+<span class="nb">        </span><span class="nv">\label</span><span class="nb">{eq}</span>
+<span class="nb">    </span><span class="nv">\end</span><span class="nb">{equation}</span>
+<span class="s">$$</span>
+</pre></div>
+
+
+<p>$$
+    \begin{equation}
+        F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} \, dx 
+        \label{eq}
+    \end{equation}
+$$</p>
+<p>Então chamamos a referência no meio do texto usando o comando <code>$\ref{eq}$</code>: "Veja a Eq. $\ref{eq}$!". Faz até link para a linha da equação no texto!</p>
+<h2>Incluindo código fonte</h2>
+<div class="highlight"><pre>  <span class="p">{%</span><span class="w"> </span><span class="nt">include_code</span><span class="w"> </span>hello-pelican-teste.py<span class="w"> </span><span class="na">lang</span><span class="o">:</span>python<span class="w"> </span>Hello<span class="w"> </span>Pelican<span class="w"> </span>Codigo<span class="w"> </span>Teste<span class="p">%}</span>
+</pre></div>
+
+
+<p>{% include_code hello-pelican-teste.py lang:python Hello Pelican Codigo Teste%}</p>
+<h2>Incluindo Ipython Notebooks</h2>
+<p>No base.html</p>
+<div class="highlight"><pre>    <span class="p">{%</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="s1">&#39;liquid_tags.notebook&#39;</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">PLUGINS</span><span class="w"> </span><span class="p">%}</span>
+        <span class="p">{%</span><span class="w"> </span><span class="nt">include</span><span class="w"> </span><span class="s1">&#39;liquid_tags_nb_header.html&#39;</span><span class="w"> </span><span class="p">%}</span>
+    <span class="p">{%</span><span class="w"> </span><span class="kr">endif</span><span class="w"> </span><span class="p">%}</span>
+</pre></div>
+
+
+<hr />
+<p>{% notebook hello-pelican-teste.ipynb %}</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="https://rhellmuth.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

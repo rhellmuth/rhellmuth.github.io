@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Humanum ex Machina</title><link href="https://rhellmuth.github.io/" rel="alternate"></link><link href="https://rhellmuth.github.io/feeds/all.atom.xml" rel="self"></link><id>https://rhellmuth.github.io/</id><updated>2014-12-28T17:00:00+01:00</updated><entry><title>Hello Pelican!</title><link href="https://rhellmuth.github.io/hello-pelican.html" rel="alternate"></link><updated>2014-12-28T17:00:00+01:00</updated><author><name>Rudolf Hellmuth</name></author><id>tag:rhellmuth.github.io,2014-12-28:hello-pelican.html</id><summary type="html">&lt;!-- PELICAN_BEGIN_SUMMARY --&gt;
+
+&lt;p&gt;{% img align-center {filename}/figures/592px-PelecanusGronvold.jpg 450  "PelecanusGronvold by Henrik Groenvold - Ibis 1914. Licensed under Public Domain via Wikimedia Commons" "pelicanos"  %}
+&lt;p align="center" style="width: 350px; max-width: 100%; text-align: left; margin-left: auto; margin-right: auto;"&gt;
+  PelecanusGronvold by Henrik Groenvold - Ibis 1914.
+  &lt;/br&gt;
+  &lt;font color="#C8C8C8"&gt;
+    Licensed under Public Domain via Wikimedia Commons.
+  &lt;/font&gt;
+&lt;/p&gt;&lt;/p&gt;
+&lt;h1&gt;Criando meu primeiro post no Pelican&lt;/h1&gt;
+&lt;p&gt;Estava pensando em criar este blog há algum tempo. Queria que fosse um blog onde pudesse postar tutoriais de &lt;a href="http://pt.wikipedia.org/wiki/Computação_científica"&gt;computação científica&lt;/a&gt; e fórmulas matemáticas em &lt;a href="http://pt.wikipedia.org/wiki/LaTeX"&gt;LaTeX&lt;/a&gt;. Mais importante do que isso, queria ter total controle sobre layout e conteúdo (inclusive aquelas informações automáticas de rodapé). Então li o post "&lt;a href="http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/"&gt;Migrating from Octopress to Pelican&lt;/a&gt;" do &lt;a href="https://jakevdp.github.io/"&gt;Pythonic Perambulations&lt;/a&gt; e acabei conhecendo o pacote &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt;. Pelican é um gerador de páginas estáticas criado em &lt;em&gt;python&lt;/em&gt; para facilitar nossa vida, na criação de blogs ou site estáticos. Sites estáticos podem ser servidos no servidor &lt;a href="https://github.com/"&gt;github&lt;/a&gt; usando a ferramenta &lt;a href="http://git-scm.com/"&gt;git&lt;/a&gt; de gerenciamento de versão de código fonte. Já havia tentado começar este blog usando &lt;a href="octopress.org"&gt;Octopress&lt;/a&gt; há uns meses atrás, mas acabei perdendo a motivação em parte porque Octopress funciona em &lt;em&gt;Ruby&lt;/em&gt;, que é uma linguagem que não domino. Como eu adoro Python, Pelican acabou sendo uma ótima opção. A &lt;a href="http://docs.getpelican.com/"&gt;documentação oficial&lt;/a&gt; está em inglês, mas no blog &lt;a href="http://mindbending.org/pt/series/migrando-para-o-pelican"&gt;Mind Bending&lt;/a&gt; existem ótimos tutoriais em português.
+&lt;!-- PELICAN_END_SUMMARY --&gt;&lt;/p&gt;
+&lt;p&gt;A minha primeira experiência com o Pelican foi estranha. Achei que seria mais simples. Achei muito simples configurar o Pelican, porque tudo é feito em dois scripts de configuração em Python. Se eu tivesse usado qualquer tema pronto teria colocado esse blog no ar no mesmo dia. O tema que mais tinha gostado para este blog foi mesmo o &lt;em&gt;default&lt;/em&gt; chamado &lt;em&gt;notmyidea&lt;/em&gt;, mas não tinha gostado de algumas características dele. Daí resolvi fazer algumas pequenas modificações neste tema, e isso me deu uma dor de cabeça porque não estou acostumado a editar &lt;a href="http://pt.wikipedia.org/wiki/Cascading_Style_Sheets"&gt;CSS&lt;/a&gt;. Acredito que seja super fácil para quem tem experiência em webdesign. &lt;/p&gt;
+&lt;h2&gt;Escrever em Markdown ou reStructuredText?&lt;/h2&gt;
+&lt;p&gt;Havia também uma coisa que precisava decidir, Python permite que escrevamos artigos usando tanto no formato &lt;a href="http://pt.wikipedia.org/wiki/Markdown"&gt;Markdown&lt;/a&gt; quanto no &lt;a href="http://pt.wikipedia.org/wiki/ReStructuredText"&gt;reStructuredText&lt;/a&gt;. reStructuredText é o formato mais usado para documentação em de bibliotecas Python, e permite que passêmos mais opções para diferentes diagramações de coisas como figuras, tabelas, links e parágrafos. Basicamente podemos especificar tags diferentes no template HTML do tema e os chamar usando flags dos comandos do reStructuredText. Isso parece ser mais flexível porque Markdown não pode fazer isso. Entretanto, é necessário configurar várias opções no template que basicamente esqueceria depois de um tempo. Então acabei escolhendo escrever tudo em Markdown porque Markdown tem a vantagem de interpretar livremente pedaços de HTML sempre que quiser alguma diagramação especial para qualquer coisa. Foi assim que coloquei a legenda na figura dos pelicanos no topo desse artigo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;img&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;align-center&lt;span class="w"&gt; &lt;/span&gt;{filename}/figures/&lt;span class="mi"&gt;592&lt;/span&gt;px-PelecanusGronvold.jpg&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;450&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;PelecanusGronvold by Henrik Groenvold - Ibis 1914. Licensed under Public Domain via Wikimedia Commons&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;pelicanos&amp;quot;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;%}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;p&lt;/span&gt; &lt;span class="na"&gt;align=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;center&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;width: 350px; max-width: 100%; text-align: left; margin-left: auto; margin-right: auto;&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+  PelecanusGronvold by Henrik Groenvold - Ibis 1914.
+  &lt;span class="nt"&gt;&amp;lt;/br&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;font&lt;/span&gt; &lt;span class="na"&gt;color=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;#C8C8C8&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    Licensed under Public Domain via Wikimedia Commons.
+  &lt;span class="nt"&gt;&amp;lt;/font&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Plugins que estou usando&lt;/h2&gt;
+&lt;p&gt;A primeira linha do exemplo acima é um &lt;a href="https://github.com/Shopify/liquid/wiki"&gt;liquid&lt;/a&gt; tag que permite configurar o tamanho da figura. Existem liquid tags preconfigurados em plugins do Pelican. Curti principalmente o liquid tag que inserere &lt;a href="http://ipython.org/notebook.html"&gt;IPython Notebooks&lt;/a&gt;, algo que vou usar bastante. Aqui vai a lista dos plugins que estou usando no momento:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;liquid_tags.img&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s"&gt;&amp;#39;liquid_tags.video&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s"&gt;&amp;#39;liquid_tags.youtube&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s"&gt;&amp;#39;liquid_tags.vimeo&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s"&gt;&amp;#39;liquid_tags.include_code&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s"&gt;&amp;#39;liquid_tags.notebook&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s"&gt;&amp;#39;summary&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s"&gt;&amp;#39;sitemap&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s"&gt;&amp;#39;latex&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+          &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Funciona super bem para por filmes nos posts configurando o tamanho da janela. Olhe o exemplo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;youtube&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;F&lt;span class="mi"&gt;1&lt;/span&gt;iWp&lt;span class="mi"&gt;4&lt;/span&gt;Gl&lt;span class="mi"&gt;3&lt;/span&gt;k&lt;span class="w"&gt; &lt;/span&gt;[&lt;span class="mi"&gt;240&lt;/span&gt;]&lt;span class="w"&gt; &lt;/span&gt;[&lt;span class="mi"&gt;180&lt;/span&gt;]&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;%}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;{% youtube 9F1iWp4Gl3k [240] [180] %}&lt;/p&gt;
+&lt;h2&gt;Usando $\LaTeX$&lt;/h2&gt;
+&lt;p&gt;O plugin de $\LaTeX$ funciona super bem. Para colocar fórmulas no texto, basta escrever entre símbolos de dolar &lt;code&gt;$...$&lt;/code&gt;. Por exemplo, &lt;code&gt;$x^2_a$&lt;/code&gt; vira $x^2_a$! Quando usamos dólares duplos &lt;code&gt;$$...$$&lt;/code&gt;, a equação é escrita numa linha sozinha e centralizada. Por exemplo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sb"&gt;$$&lt;/span&gt;&lt;span class="nb"&gt;&lt;/span&gt;
+&lt;span class="nb"&gt;    F&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;k&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nb"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt; &lt;/span&gt;&lt;span class="nv"&gt;\int&lt;/span&gt;&lt;span class="nb"&gt;_{&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;\infty&lt;/span&gt;&lt;span class="nb"&gt;}^{&lt;/span&gt;&lt;span class="nv"&gt;\infty&lt;/span&gt;&lt;span class="nb"&gt;} f&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;x&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nb"&gt; e^{&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="nv"&gt;\pi&lt;/span&gt;&lt;span class="nb"&gt; i k} &lt;/span&gt;&lt;span class="nv"&gt;\,&lt;/span&gt;&lt;span class="nb"&gt; dx&lt;/span&gt;
+&lt;span class="s"&gt;$$&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;$$
+    F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} \, dx
+$$&lt;/p&gt;
+&lt;p&gt;Também é possível colocar numerações com labels nas equações de duplo dólar usando o "environment" &lt;code&gt;equation&lt;/code&gt; do $\LaTeX$:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sb"&gt;$$&lt;/span&gt;&lt;span class="nb"&gt;&lt;/span&gt;
+&lt;span class="nb"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;\begin&lt;/span&gt;&lt;span class="nb"&gt;{equation}&lt;/span&gt;
+&lt;span class="nb"&gt;        F&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;k&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nb"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt; &lt;/span&gt;&lt;span class="nv"&gt;\int&lt;/span&gt;&lt;span class="nb"&gt;_{&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;\infty&lt;/span&gt;&lt;span class="nb"&gt;}^{&lt;/span&gt;&lt;span class="nv"&gt;\infty&lt;/span&gt;&lt;span class="nb"&gt;} f&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;x&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="nb"&gt; e^{&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="nv"&gt;\pi&lt;/span&gt;&lt;span class="nb"&gt; i k} &lt;/span&gt;&lt;span class="nv"&gt;\,&lt;/span&gt;&lt;span class="nb"&gt; dx &lt;/span&gt;
+&lt;span class="nb"&gt;        &lt;/span&gt;&lt;span class="nv"&gt;\label&lt;/span&gt;&lt;span class="nb"&gt;{eq}&lt;/span&gt;
+&lt;span class="nb"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;\end&lt;/span&gt;&lt;span class="nb"&gt;{equation}&lt;/span&gt;
+&lt;span class="s"&gt;$$&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;$$
+    \begin{equation}
+        F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} \, dx 
+        \label{eq}
+    \end{equation}
+$$&lt;/p&gt;
+&lt;p&gt;Então chamamos a referência no meio do texto usando o comando &lt;code&gt;$\ref{eq}$&lt;/code&gt;: "Veja a Eq. $\ref{eq}$!". Faz até link para a linha da equação no texto!&lt;/p&gt;
+&lt;h2&gt;Incluindo código fonte&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;  &lt;span class="p"&gt;{%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;include_code&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;hello-pelican-teste.py&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;python&lt;span class="w"&gt; &lt;/span&gt;Hello&lt;span class="w"&gt; &lt;/span&gt;Pelican&lt;span class="w"&gt; &lt;/span&gt;Codigo&lt;span class="w"&gt; &lt;/span&gt;Teste&lt;span class="p"&gt;%}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;{% include_code hello-pelican-teste.py lang:python Hello Pelican Codigo Teste%}&lt;/p&gt;
+&lt;h2&gt;Incluindo Ipython Notebooks&lt;/h2&gt;
+&lt;p&gt;No base.html&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="p"&gt;{%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kr"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;liquid_tags.notebook&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;PLUGINS&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;%}&lt;/span&gt;
+        &lt;span class="p"&gt;{%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;include&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;liquid_tags_nb_header.html&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;%}&lt;/span&gt;
+    &lt;span class="p"&gt;{%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kr"&gt;endif&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;%}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr /&gt;
+&lt;p&gt;{% notebook hello-pelican-teste.ipynb %}&lt;/p&gt;</summary><category term="pelican"></category><category term="python"></category><category term="blog"></category></entry></feed>
