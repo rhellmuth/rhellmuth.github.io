@@ -9,7 +9,7 @@
   <!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-	<title>Humanum ex Machina - python</title>
+	<title>Hello Pelican!</title>
 	<link rel="stylesheet" href="https://rhellmuth.github.io/theme/css/main.css" />
 				
   	<link href="/feeds/all.atom.xml" 
@@ -183,13 +183,19 @@ init_mathjax();
                 <h1><a href="https://rhellmuth.github.io/">Humanum ex Machina </a></h1>
                 <nav><ul>
                     <li><a href="https://rhellmuth.github.io/pages/sobre.html">Sobre</a></li>
-                    <li><a href="https://rhellmuth.github.io/category/tutoriais.html">Tutoriais</a></li>
+                    <li class="active"><a href="https://rhellmuth.github.io/category/tutoriais.html">Tutoriais</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://rhellmuth.github.io/post/hello-pelican/">Hello Pelican!</a></h1>
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="https://rhellmuth.github.io/post/hello-pelican/"
+				   rel="bookmark"
+           title="Permalink to Hello Pelican!">
+					 Hello Pelican!
+				</a>
+			</h1>
 <footer class="post-info">
 	<span id="article-datetime">
 		<i class="fa fa-calendar"></i> 
@@ -218,7 +224,11 @@ init_mathjax();
 		</a> 
 	</p>
 	
-</footer><!-- /.post-info -->
+</footer><!-- /.post-info -->      <!--  -->
+    </header>
+
+    <div class="entry-content">
+      
 
 <p><img width="450" title="PelecanusGronvold by Henrik Groenvold - Ibis 1914. Licensed under Public Domain via Wikimedia Commons" alt="pelicanos" src="https://rhellmuth.github.io/figures/592px-PelecanusGronvold.jpg" class="align-center">
 <p align="center" style="width: 350px; max-width: 100%; text-align: left; margin-left: auto; margin-right: auto;">
@@ -794,11 +804,26 @@ QmCC
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script><p>There are <a href="https://rhellmuth.github.io/post/hello-pelican/#disqus_thread">comments</a>.</p>                </article>
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </aside><!-- /#featured -->
+</script>
+    </div><!-- /.entry-content -->
+    <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'humanumexmachina';
+        var disqus_identifier = 'post/hello-pelican/';
+        var disqus_url = 'https://rhellmuth.github.io/post/hello-pelican/';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//humanumexmachina.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>
